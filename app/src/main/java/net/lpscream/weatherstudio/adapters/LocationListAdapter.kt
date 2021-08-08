@@ -23,22 +23,16 @@ class LocationListAdapter(private var list: List<String>?,
 
     override fun getItemCount(): Int = list?.size!!
 
-
-
     inner class ItemViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.countryName.setOnClickListener {
+            binding.itemLayout.setOnClickListener {
                 mItemClickListener.onItemClick(adapterPosition) }
-            binding.countryName.setOnLongClickListener {
+            binding.itemLayout.setOnLongClickListener {
                 mItemClickListener.onLongClick(adapterPosition)
                 return@setOnLongClickListener true}
         }
 
     }
-
-
-
-
 
     interface ItemClickListener{
         fun onItemClick(position: Int)
